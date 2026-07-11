@@ -1137,18 +1137,18 @@ const KVDB_URL = 'https://script.google.com/macros/s/AKfycby8tohJyTR8ETt3m75T-7F
 const GRAD = new Date('2026-07-12T07:30:00+07:00');
 
 const PHOTOS=[
-  {u:'picture/foto 1.jpeg',l:'Kenangan Kampus',c:'campus'},
-  {u:'picture/foto 2.jpeg',l:'Momen Kuliah',c:'campus'},
-  {u:'picture/foto 3.jpeg',l:'Hari Kelulusan',c:'graduation'},
-  {u:'picture/foto 4.jpeg',l:'Toga & Wisuda',c:'graduation'},
-  {u:'picture/foto 5.jpeg',l:'Bersama Teman',c:'friends'},
-  {u:'picture/foto 6.jpeg',l:'Sahabat Tercinta',c:'friends'},
-  {u:'picture/foto 7.jpeg',l:'Keluarga Tercinta',c:'family'},
-  {u:'picture/foto 8.jpeg',l:'Momen Bahagia',c:'graduation'},
-  {u:'picture/foto 9.jpeg',l:'Kenangan Indah',c:'campus'},
-  {u:'picture/foto 10.jpeg',l:'Momen Wisuda',c:'graduation'},
-  {u:'picture/foto 11.jpeg',l:'Bersama Sahabat',c:'friends'},
-  {u:'picture/wisuda berdiri.jpeg',l:'Foto Wisuda',c:'graduation'},
+  {u:'picture/foto 1.jpeg',c:'campus'},
+  {u:'picture/foto 2.jpeg',c:'campus'},
+  {u:'picture/foto 3.jpeg',c:'graduation'},
+  {u:'picture/foto 4.jpeg',c:'graduation'},
+  {u:'picture/foto 5.jpeg',c:'friends'},
+  {u:'picture/foto 6.jpeg',c:'friends'},
+  {u:'picture/foto 7.jpeg',c:'family'},
+  {u:'picture/foto 8.jpeg',c:'graduation'},
+  {u:'picture/foto 9.jpeg',c:'campus'},
+  {u:'picture/foto 10.jpeg',c:'graduation'},
+  {u:'picture/foto 11.jpeg',c:'friends'},
+  {u:'picture/wisuda berdiri.jpeg',c:'graduation'},
 ];
 
 const TRACKS=[
@@ -1228,9 +1228,9 @@ setInterval(tick,1000);tick();
 /* ── Gallery ───────────────────────────── */
 (function(){
   const grid=document.getElementById('gal-grid');
-  PHOTOS.forEach(p=>{const d=document.createElement('div');d.className='gal-item';d.dataset.c=p.c;d.innerHTML=`<img src="${p.u}" alt="${p.l}" loading="lazy"/><div class="ov"><span>${p.l}</span></div>`;d.onclick=()=>openLB(p.u,p.l);grid.appendChild(d);});
+  PHOTOS.forEach(p=>{const d=document.createElement('div');d.className='gal-item';d.dataset.c=p.c;d.innerHTML=`<img src="${p.u}" alt="Photo" loading="lazy"/>`;d.onclick=()=>openLB(p.u);grid.appendChild(d);});
 })();
-function openLB(src,alt){document.getElementById('lb-img').src=src;document.getElementById('lb-img').alt=alt;document.getElementById('lb').classList.add('open');}
+function openLB(src,alt){document.getElementById('lb-img').src=src;document.getElementById('lb-img').alt=alt||'Photo';document.getElementById('lb').classList.add('open');}
 document.getElementById('lb-x').onclick=()=>document.getElementById('lb').classList.remove('open');
 document.getElementById('lb').onclick=function(e){if(e.target===this)this.classList.remove('open');};
 
