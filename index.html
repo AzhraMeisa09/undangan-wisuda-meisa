@@ -1133,7 +1133,7 @@ footer{background:var(--maroon-dark);color:rgba(255,255,255,.6);text-align:cente
 </div>
 
 <script>
-const KVDB_URL = 'https://kvdb.io/SmFbnTqsk1ZAUYF29PDY8C/guestbook';
+const KVDB_URL = 'https://jsonbin-zeta.vercel.app/api/bins/YpJJ10rAkJ';
 const GRAD = new Date('2026-07-12T07:30:00+07:00');
 
 const PHOTOS=[
@@ -1305,7 +1305,8 @@ async function sendMsg(){
       created_at: new Date().toISOString()
     });
     const rSave=await fetch(KVDB_URL,{
-      method:'POST',
+      method:'PUT',
+      headers:{ 'Content-Type': 'application/json' },
       body:JSON.stringify(messages)
     });
     if(rSave.ok){fm.className='fm ok';fm.textContent='✅ Ucapan berhasil dikirim! Terima kasih 💖';document.getElementById('gbm').value='';loadMsgs(1);}else throw new Error('Gagal menyimpan ucapan');}
